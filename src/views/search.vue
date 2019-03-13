@@ -1,11 +1,12 @@
 <template>
-  <mc-home />
+  <cm-search />
 </template>
 <script>
-import McHome from '../components/home/index.vue'
+import CmSearch from 'com*/search/index.vue'
 export default {
   components: {
-    McHome
+    CmSearch
   }
 }
 </script>
+
