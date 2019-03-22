@@ -20,7 +20,7 @@ export default {
 		searchData (e) {
 			let target = e.target;
 			if(target.nodeName === 'LI') {
-					this.$emit('searchdata', target.innerHTML)
+				this.$emit('searchdata', target.innerHTML)
 			}
 		}
 	}
@@ -39,15 +39,14 @@ export default {
 			@include flex($direction: row);
 			margin-top: 20px;
 			li {
-					height: 64px;
-					margin: 0 16px 16px 0;
-					padding: 0 28px;
-					border: 1px solid #ccc;
-					border-radius: 64px;
-					font-size: 28px;
-					color: #333;
-					line-height: 64px;
-
+				height: 64px;
+				margin: 0 16px 16px 0;
+				padding: 0 28px;
+				border: 1px solid #ccc;
+				border-radius: 64px;
+				font-size: 28px;
+				color: #333;
+				line-height: 64px;
 			}
 		}
 	}

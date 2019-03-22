@@ -4,7 +4,7 @@
 			<cm-header></cm-header>
 			<cm-navbar></cm-navbar>
 		</div>
-		<cm-search 
+		<cm-search
 			:class="$style.search" 
 			@transferdata="searchMusic"
 			@emptycontent="emptySearchContent"
@@ -44,7 +44,6 @@ import cmHot from './hot.vue'
 import cmShow from './showlist.vue'
 import cmHistory from './history.vue'
 import cmListSearch from './listSearch.vue'
-import axios from 'axios'
 export default {
 	components: {
 		cmHeader,
@@ -56,41 +55,54 @@ export default {
 		cmListSearch
 	},
 	data () {
-			return {
-					items: [{
-							text: 'Charlie Puth'
-					}, {
-							text: '放弹少年团'
-					}, {
-							text: '徐秉龙'
-					}, {
-							text: '我们'
-					}, {
-							text: '溯游从歌'
-					}, {
-							text: '李志'
-					}, {
-							text: '没有理由'
-					}, {
-							text: '渺小却伟大'
-					}, {
-							text: '谢春花'
-					}, {
-							text: '炎亚纶'
-					}],
-					msg: '',
-					historyList: [],
-					list: [],
-					timer: null,
-					searchData: [],
-					isSearch: false,
-					start: 0,
-					maxH: 0,
-					clientH: 0,
-					isUpdated: true,
-					isToBottom: false,
-					count: 8888
-			}
+		return {
+			items: [
+				{
+					text: 'Charlie Puth'
+				}, 
+				{
+					text: '放弹少年团'
+				},
+				{
+					text: '徐秉龙'
+				}, 
+				{
+					text: '我们'
+				}, 
+				{
+					text: '溯游从歌'
+				},
+				{
+					text: '李志'
+				},
+				{
+					text: '没有理由'
+				},
+				{
+					text: '渺小却伟大'
+				},
+				{
+					text: '谢春花'
+				},
+				{
+					text: '炎亚纶'
+				}
+			],
+			msg: '',
+			historyList: [],
+			list: [],
+			timer: null,
+			searchData: [],
+			isSearch: false,
+			start: 0,
+			maxH: 0,
+			clientH: 0,
+			isUpdated: true,
+			isToBottom: false,
+			count: 8888,
+			searchUrl: 'https://www.easy-mock.com/mock/5af3a211656ea22f99b56034/clous-music/search',
+			getDataUrl: 'https://www.easy-mock.com/mock/5af3a211656ea22f99b56034/clous-music/get'
+		}
 	},
 	methods: {
 		searchMusic (val) {
@@ -98,44 +110,33 @@ export default {
 		},
 		// 联想搜索，用easy mock接口测试数据
 		getMindSearchData (val) {
-			axios.get('https://www.easy-mock.com/mock/5af3a211656ea22f99b56034/clous-music/search', {
-				params: {
-					value: val
-				}
-			})
-			.then((res) => {
+			this.$http.get(`${this.searchUrl}?value=${val}`).then((res) => {
 				this.list = res.data.result;
-			})
-			.catch((error) => {
+			}).catch((error) => {
 				console.log(error);
 			})
 		},
 		// 清空与搜索相关的信息
 		emptySearchContent () {
-				this.msg = '';
-				this.list = [];
-				this.isSearch = false;
-				this.searchData = [];
-				this.isToBottom = false;
-				this.start = 0;
-				this.count = 9999;
+			this.msg = '';
+			this.list = [];
+			this.isSearch = false;
+			this.searchData = [];
+			this.isToBottom = false;
+			this.start = 0;
+			this.count = 9999;
 		},
 		dealSearchData () {
-				if(this.msg !== '') {
-						this.getSearchData();
-						this.pushHistory(this.msg); 
-				}
-					
+			if(this.msg !== '') {
+				this.getSearchData();
+				this.pushHistory(this.msg); 
+			}		
 		},
 		// 同样用easy mock 模拟数据，返回与搜索内容匹配的数据
 		getSearchData () {
 			if(this.start < this.count) {
-				axios.get('https://www.easy-mock.com/mock/5af3a211656ea22f99b56034/clous-music/get', {
-					params: {
-						keyword: this.msg
-						}
-				})
-				.then( (res) => {
+				let url = `${this.getDataUrl}?keyword=${this.msg}`
+				this.$http.get(url).then((res) => {
 					let result = res.data.result;
 					let over = this.start + 10;
 					this.count = result.count;
@@ -143,8 +144,7 @@ export default {
 					over = Math.min(over, result.count);
 					this.searchData.push(...result.song.slice(this.start, over));
 					this.start = over;
-				})
-				.catch( (error) => {
+				}).catch( (error) => {
 					console.log(error);
 				})
 			} else {
@@ -220,27 +220,27 @@ export default {
 </script>
 
 <style lang="scss" module>
-    .container {
-        .fix {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 2;
-            width: 100%;
-            background-color: #fff;
-        }
-        .search {
-            margin-top: 208px;
-        }
-        .bottom {
-            height: 80px;
-            line-height: 80px;
-            text-align: center;
-            color: #333;
-            font-size: 28px;
-            background: #eee;
-        }
-    }
+	.container {
+		.fix {
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: 2;
+			width: 100%;
+			background-color: #fff;
+		}
+		.search {
+			margin-top: 208px;
+		}
+		.bottom {
+			height: 80px;
+			line-height: 80px;
+			text-align: center;
+			color: #333;
+			font-size: 28px;
+			background: #eee;
+		}
+	}
 </style>
 
 
