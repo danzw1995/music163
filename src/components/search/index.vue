@@ -174,7 +174,7 @@ export default {
 		let startTime = +new Date();
 		let endTime;
 		// touchmove事件 实现懒加载,移动到底部的时候加载更多数据
-		document.addEventListener('touchmove', function (e) {
+		document.addEventListener('touchmove', function () {
 			if(Math.abs(document.documentElement.scrollTop + self.clientH - self.maxH) <= 10 && self.isUpdated && self.isSearch) {
 				self.isUpdated = false;
 				// 节流 至少间隔2000ms

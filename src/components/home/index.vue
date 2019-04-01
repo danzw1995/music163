@@ -1,8 +1,8 @@
 <template>
   <div :class="$style.container">
 		<div :class="$style.fix">
-				<cm-header></cm-header>
-				<cm-navbar></cm-navbar>
+			<cm-header></cm-header>
+			<cm-navbar></cm-navbar>
 		</div>
 		<cm-recommend :recommend="recommend" :class="$style.recommend"></cm-recommend>
 		<cm-music :list="latestMusic"></cm-music>

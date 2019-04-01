@@ -40,5 +40,6 @@ export default new Router({
       name: 'search',
       component: Search
     }
-  ]
+  ],
+  linkExactActiveClass: 'active'
 })
