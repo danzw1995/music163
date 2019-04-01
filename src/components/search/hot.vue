@@ -2,14 +2,14 @@
 	<div :class="$style.searchInfo">
 		<h3>热门搜索</h3>
 		<ul :class="$style.hotList" @click="searchData">
-			<li v-for="item in items" :key="item.text">{{item.text}}</li>
+			<li v-for="item in hotList" :key="item.id">{{item.name}}</li>
 		</ul>
 	</div>
 </template>
 <script>
 export default {
 	props: {
-		items: {
+		hotList: {
 			type: Array,
 			default () {
 				return []

@@ -15,6 +15,7 @@ module.exports = {
     config.resolve.alias
       .set('com*', resolve('./src/components'))
       .set('assets*', resolve('./src/assets'))
+      .set('api', resolve('./src/api'))
   },
   css: {
     loaderOptions: {

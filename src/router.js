@@ -1,10 +1,23 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/home.vue'
-import Hot from './views/hot.vue'
-import Search from './views/search.vue'
 
 Vue.use(Router)
+
+const Home = (resolve) => {
+  import('./views/home').then(module => {
+    resolve(module)
+  })
+}
+const Hot = (resolve) => {
+  import('./views/hot').then(module => {
+    resolve(module)
+  })
+}
+const Search = (resolve) => {
+  import('./views/search').then(module => {
+    resolve(module)
+  })
+}
 
 export default new Router({
   routes: [
