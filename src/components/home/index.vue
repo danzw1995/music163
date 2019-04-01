@@ -5,7 +5,8 @@
 				<cm-navbar></cm-navbar>
 		</div>
 		<cm-recommend :class="$style.recommend"></cm-recommend>
-		<cm-music></cm-music>
+		<cm-music :list="latestMusic"></cm-music>
+		<cm-loading v-show="!latestMusic.length"></cm-loading>
 		<cm-footer></cm-footer>
   </div>
 </template>
@@ -14,14 +15,31 @@ import cmHeader from '../public/header.vue'
 import cmNavbar from '../public/navbar.vue'
 import cmRecommend from './recommend.vue'
 import cmMusic from './music.vue'
-import cmFooter from './footer.vue'
+import cmFooter from './footer'
+import cmLoading from '../base/loading'
+import {getLatestMusic} from '../../api/home'
 export default {
+	data () {
+		return {
+			latestMusic: []
+		}
+	},
 	components: {
 		cmHeader,
 		cmNavbar,
 		cmRecommend,
 		cmMusic,
-		cmFooter
+		cmFooter,
+		cmLoading
+	},
+	created () {
+		getLatestMusic().then(res => {
+			if (res.data.code === 200) {
+				this.latestMusic = res.data.data
+			}
+		}).catch(err => {
+			console.log(err)
+		})
 	}
 }
 </script>

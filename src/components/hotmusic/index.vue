@@ -5,7 +5,8 @@
 			<cm-navbar></cm-navbar>
 		</div>
 		<cm-poster></cm-poster>
-		<cm-list></cm-list>
+		<cm-list :hot-list="hotList"></cm-list>
+		<cm-loading v-show="!hotList.length"></cm-loading>
 	</div>
 </template>
 <script>
@@ -13,14 +14,30 @@ import cmHeader from '../public/header.vue'
 import cmNavbar from '../public/navbar.vue'
 import cmPoster from './poster.vue'
 import cmList from './hotlist.vue'
+import cmLoading from '../base/loading'
+import {getHotMusic} from '../../api/hot'
 export default {
+	data () {
+		return {
+			hotList: []
+		}
+	},
 	components: {
 		cmHeader,
 		cmNavbar,
 		cmPoster,
-		cmList
+		cmList,
+		cmLoading
+	},
+	created () {
+		getHotMusic().then(res => {
+			if (res.data.code === 200) {
+				this.hotList = res.data.items
+			}
+		}).catch(err => {
+			console.log(err)
+		})
 	}
-
 }
 </script>
 <style lang="scss" module>
