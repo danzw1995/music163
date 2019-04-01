@@ -27,7 +27,7 @@ export default {
 	}
 </style>
 <style lang="scss" module>
-	@import '../../assets/css/layout.scss';
+	@import 'assets/css/layout.scss';
 	.nav {
 		@include flex($direction: row);
 		height: 80px;
@@ -47,13 +47,6 @@ export default {
 				box-sizing: border-box;
 				padding: 0 20px;
 			}
-			// &:hover {
-			//     color: #d43c33;
-			//     span {
-			//         box-shadow: 0 -4px 0 0 #d43c33 inset;
-			//     }
-					
-			// }
 		}
 	}
 </style>

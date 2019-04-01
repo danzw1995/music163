@@ -44,7 +44,7 @@ import cmHot from './hot.vue'
 import cmShow from './showlist.vue'
 import cmHistory from './history.vue'
 import cmListSearch from './listSearch.vue'
-import {getMindSearchData, getSearchData, getHotSearch} from '../../api/search.js'
+import {getMindSearchData, getSearchData, getHotSearch} from 'api/search.js'
 export default {
 	components: {
 		cmHeader,
@@ -56,21 +56,21 @@ export default {
 		cmListSearch
 	},
 	data () {
-			return {
-				hotList: [],
-				msg: '',
-				historyList: [],
-				list: [],
-				timer: null,
-				searchData: [],
-				isSearch: false,
-				start: 0,
-				maxH: 0,
-				clientH: 0,
-				isUpdated: true,
-				isToBottom: false,
-				count: 8888
-			}
+		return {
+			hotList: [],
+			msg: '',
+			historyList: [],
+			list: [],
+			timer: null,
+			searchData: [],
+			isSearch: false,
+			start: 0,
+			maxH: 0,
+			clientH: 0,
+			isUpdated: true,
+			isToBottom: false,
+			count: 8888
+		}
 	},
 	methods: {
 		searchMusic (val) {

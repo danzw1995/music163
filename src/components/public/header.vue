@@ -9,7 +9,7 @@ export default {
 }
 </script>
 <style lang="scss" module>
-	@import '../../assets/css/layout.scss';
+	@import 'assets/css/layout.scss';
 	.topic {
 		@include flex($direction: row, $justify: space-between);
 		height: 128px;

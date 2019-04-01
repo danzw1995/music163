@@ -42,7 +42,7 @@ export default {
 }
 </script>
 <style lang="scss" module>
-	@import '../../assets/css/layout.scss';
+	@import 'assets/css/layout.scss';
 	.search {
 		.form {
 			height: 60px;

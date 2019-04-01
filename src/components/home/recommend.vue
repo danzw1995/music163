@@ -11,28 +11,27 @@
 </template>
 <script>
 import Panel from '../base/panel.vue'
-import {getRecommendMusic} from '../../api/home'
 export default {
+	props: {
+		recommend: {
+			type: Array,
+			default () {
+				return []
+			}
+		}
+	},
 	components: {
 		Panel
 	},
 	data () {
 		return {
-			txt: '推荐歌单',
-			recommend: []
+			txt: '推荐歌单'
 		}
-	},
-	created () {
-		getRecommendMusic().then(res => {
-			if (res.data.code === 200) {
-				this.recommend = res.data.recommend
-			}
-		})
 	}
 }
 </script>
 <style lang="scss" module>
-	@import '../../assets/css/layout.scss';
+	@import 'assets/css/layout.scss';
 	.recommend {
 		.content {
 			@include flex($direction: row, $justify: space-between, $alignItems: flex-start);

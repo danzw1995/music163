@@ -15,7 +15,7 @@
 	</div>
 </template>
 <script>
-import List from '../base/list.vue';
+import List from '../base/list'
 export default {
 	components: {
 		List

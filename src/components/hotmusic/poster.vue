@@ -9,7 +9,7 @@ export default {
 }
 </script>
 <style lang="scss" module>
-	@import '../../assets/css/layout.scss';
+	@import 'assets/css/layout.scss';
 	.poster {
 		@include flex($direction: column, $justify: center, $alignItems: flex-start);
 		width: 100%;

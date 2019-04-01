@@ -27,7 +27,7 @@ export default {
 }
 </script>
 <style lang="scss" module>
-	@import '../../assets/css/layout.scss';
+	@import 'assets/css/layout.scss';
 	.searchInfo {
 		padding: 30px 20px 0;
 		h3 {

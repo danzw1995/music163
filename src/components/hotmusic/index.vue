@@ -10,12 +10,12 @@
 	</div>
 </template>
 <script>
-import cmHeader from '../public/header.vue'
-import cmNavbar from '../public/navbar.vue'
-import cmPoster from './poster.vue'
-import cmList from './hotlist.vue'
+import cmHeader from '../public/header'
+import cmNavbar from '../public/navbar'
+import cmPoster from './poster'
+import cmList from './hotlist'
 import cmLoading from '../base/loading'
-import {getHotMusic} from '../../api/hot'
+import {getHotMusic} from 'api/hot'
 export default {
 	data () {
 		return {

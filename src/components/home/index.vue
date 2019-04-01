@@ -4,24 +4,25 @@
 				<cm-header></cm-header>
 				<cm-navbar></cm-navbar>
 		</div>
-		<cm-recommend :class="$style.recommend"></cm-recommend>
+		<cm-recommend :recommend="recommend" :class="$style.recommend"></cm-recommend>
 		<cm-music :list="latestMusic"></cm-music>
 		<cm-loading v-show="!latestMusic.length"></cm-loading>
 		<cm-footer></cm-footer>
   </div>
 </template>
 <script>
-import cmHeader from '../public/header.vue'
-import cmNavbar from '../public/navbar.vue'
-import cmRecommend from './recommend.vue'
-import cmMusic from './music.vue'
+import cmHeader from '../public/header'
+import cmNavbar from '../public/navbar'
+import cmRecommend from './recommend'
+import cmMusic from './music'
 import cmFooter from './footer'
 import cmLoading from '../base/loading'
-import {getLatestMusic} from '../../api/home'
+import {getLatestMusic, getRecommendMusic} from 'api/home'
 export default {
 	data () {
 		return {
-			latestMusic: []
+			latestMusic: [],
+			recommend: []
 		}
 	},
 	components: {
@@ -33,13 +34,28 @@ export default {
 		cmLoading
 	},
 	created () {
-		getLatestMusic().then(res => {
-			if (res.data.code === 200) {
-				this.latestMusic = res.data.data
-			}
-		}).catch(err => {
-			console.log(err)
-		})
+		this.getLatest()
+		this.getRecommend()
+	},
+	methods:{
+		getLatest () {
+			getLatestMusic().then(res => {
+				if (res.data.code === 200) {
+					this.latestMusic = res.data.data
+				}
+			}).catch(err => {
+				console.log(err)
+			})
+		},
+		getRecommend () {
+			getRecommendMusic().then(res => {
+				if (res.data.code === 200) {
+					this.recommend = res.data.recommend
+				}
+			}).catch(err => {
+				console.log(err)
+			})
+		}
 	}
 }
 </script>

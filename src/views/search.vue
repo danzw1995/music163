@@ -2,7 +2,7 @@
   <cm-search />
 </template>
 <script>
-import CmSearch from 'com*/search/index.vue'
+import CmSearch from 'components/search/index.vue'
 export default {
   components: {
     CmSearch
