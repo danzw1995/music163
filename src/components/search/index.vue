@@ -4,7 +4,7 @@
 			<cm-header></cm-header>
 			<cm-navbar></cm-navbar>
 		</div>
-		<cm-search 
+		<cm-search
 			:class="$style.search" 
 			@transferdata="searchMusic"
 			@emptycontent="emptySearchContent"
@@ -197,27 +197,27 @@ export default {
 </script>
 
 <style lang="scss" module>
-    .container {
-        .fix {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 2;
-            width: 100%;
-            background-color: #fff;
-        }
-        .search {
-            margin-top: 208px;
-        }
-        .bottom {
-            height: 80px;
-            line-height: 80px;
-            text-align: center;
-            color: #333;
-            font-size: 28px;
-            background: #eee;
-        }
-    }
+	.container {
+		.fix {
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: 2;
+			width: 100%;
+			background-color: #fff;
+		}
+		.search {
+			margin-top: 208px;
+		}
+		.bottom {
+			height: 80px;
+			line-height: 80px;
+			text-align: center;
+			color: #333;
+			font-size: 28px;
+			background: #eee;
+		}
+	}
 </style>
 
 
