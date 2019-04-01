@@ -5,7 +5,7 @@
 	</div>
 </template>
 <script>
-import cmList from '../base/list.vue'
+import cmList from '../base/list'
 export default {
 	props: {
 		hotList: {

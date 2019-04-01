@@ -37,14 +37,14 @@
 </template>
 
 <script>
-import cmHeader from '../public/header.vue'
-import cmNavbar from '../public/navbar.vue'
-import cmSearch from './search.vue'
-import cmHot from './hot.vue'
-import cmShow from './showlist.vue'
-import cmHistory from './history.vue'
-import cmListSearch from './listSearch.vue'
-import {getMindSearchData, getSearchData, getHotSearch} from 'api/search.js'
+import cmHeader from '../public/header'
+import cmNavbar from '../public/navbar'
+import cmSearch from './search'
+import cmHot from './hot'
+import cmShow from './showlist'
+import cmHistory from './history'
+import cmListSearch from './listSearch'
+import {getMindSearchData, getSearchData, getHotSearch} from 'api/search'
 export default {
 	components: {
 		cmHeader,

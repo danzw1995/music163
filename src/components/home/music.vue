@@ -4,8 +4,8 @@
 	</Panel>
 </template>
 <script>
-import Panel from '../base/panel.vue'
-import cmList from '../base/list.vue'
+import Panel from '../base/panel'
+import cmList from '../base/list'
 export default {
 	props: {
 		list: {

@@ -10,7 +10,7 @@
 	</Panel>
 </template>
 <script>
-import Panel from '../base/panel.vue'
+import Panel from '../base/panel'
 export default {
 	props: {
 		recommend: {
